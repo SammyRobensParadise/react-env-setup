@@ -39,17 +39,16 @@ echo -e "${GREEN}Git Username: $gitUsername"
 echo -e "Project Name $projectName"
 echo -e "With Firebase: $withFirebase"
 echo -e "${PURPLE}Making Project in parent directory using create-react-app..."
-cd ../
-npm uninstall -g create-react-app
-npx create-react-app $projectName
-cd ./$projectName
+npx create-react-app ../$projectName
+cd ../$projectName && git init
 echo -e "Initializing repository as git repository"
-git init
 echo -e "Updating npm..."
 npm -v
 npm i npm
 npm -v
 echo -e "Installing npm dependencies"
+pwd
+echo -p
 npm install @loadable/component react-cookie react-lazy-load-image-component react-lazyload @material-ui/core react-redux react-router react-router-dom react-scripts react-scroll styled-components
 npm audit fix
 echo -e "${GREEN}Sucessfully installed dependencies"
