@@ -41,7 +41,7 @@ echo "With Firebase: $withFirebase"
 echo "${PURPLE}Making Project in parent directory using create-react-app..."
 cd ../
 npx create-react-app $projectName
-cd ../$projectName
+cd ./$projectName
 echo "Initializing repository as git repository"
 git init
 echo "Updating npm..."
