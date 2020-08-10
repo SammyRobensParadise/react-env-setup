@@ -51,6 +51,7 @@ npm -v
 echo "Installing npm dependencies"
 npm install @loadable/component react-cookie react-lazy-load-image-component react-lazyload @material-ui/core react-redux react-router react-router-dom react-scripts react-scroll styled-components
 echo "${GREEN}Sucessfully installed dependencies"
+echo "committing and pushing to a remote repository"
 git add .
 git commit -m "Initial commit to repository"
 git remote add origin https://github.com/$gitUsername/$projectName.git
