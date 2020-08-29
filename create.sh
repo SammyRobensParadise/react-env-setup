@@ -39,9 +39,10 @@ echo -e "${GREEN}Git Username: $gitUsername"
 echo -e "Project Name $projectName"
 echo -e "With Firebase: $withFirebase"
 echo -e "${PURPLE}Making Project in parent directory using create-react-app..."
+npm uninstall -g create-react-app
 npx create-react-app ../$projectName
-cd ../$projectName && git init
 echo -e "Initializing repository as git repository"
+cd ../$projectName && git init
 echo -e "Updating npm..."
 npm -v
 npm i npm
