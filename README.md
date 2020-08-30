@@ -20,5 +20,5 @@ $ chmod +x create.sh
 3. run
 
 ```bash
- $ ./create.sh -a "gitUsername" -b "projectName" -c "withFirebase"
+ $ ./create.sh -a "gitUsername" -b "projectName"
 ```
