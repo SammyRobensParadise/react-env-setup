@@ -40,6 +40,8 @@ ______ _____ ___  _____ _____      _____ _   _ _   _        _____ _____ _____ _ 
 | |\ \| |__| | | | \__/\ | |      | |___| |\  \ \_/ /      /\__/ / |___  | | | |_| | |    
 \_| \_\____|_| |_/\____/ \_/      \____/\_| \_/\___/       \____/\____/  \_/  \___/\_| 
 
+By: Sammy Robens-Paradise
+Website: https://sammy.world
 EOF
 
 echo -e "${PURPLE}Beginning Script...."
@@ -75,5 +77,5 @@ git add .
 git commit -m "bootstrapped react-router-dom"
 echo -e "${PURPLE}adding remote and pushing"
 git remote add origin https://github.com/$gitUsername/$projectName.git
-git push origin master
+git push origin master -f
 echo -e "done"
