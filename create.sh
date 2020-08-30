@@ -12,7 +12,6 @@ helpFunction()
    echo -e "Usage: $0 -a gitUsername -b projectName -c withFirebase"
    echo -e -e "\t-a Description of what is gitUsername"
    echo -e -e "\t-b Description of what is projectName"
-   echo -e -e "\t-c Description of what is withFirebase"
    exit 1 # Exit script after printing help
 }
 
@@ -21,13 +20,12 @@ do
    case "$opt" in
       a ) gitUsername="$OPTARG" ;;
       b ) projectName="$OPTARG" ;;
-      c ) withFirebase="$OPTARG" ;;
       ? ) helpFunction ;; # Print helpFunction in case parameter is non-existent
    esac
 done
 
 # Print helpFunction in case parameters are empty
-if [ -z "$gitUsername" ] || [ -z "$projectName" ] || [ -z "$withFirebase" ]
+if [ -z "$gitUsername" ] || [ -z "$projectName" ]
 then
    echo "Some or all of the parameters are empty";
    helpFunction
@@ -40,8 +38,9 @@ echo -e "Project Name $projectName"
 echo -e "With Firebase: $withFirebase"
 echo -e "${PURPLE}Making Project in parent directory using create-react-app..."
 npm uninstall -g create-react-app
+rm -rf ../$projectName
 npx create-react-app ../$projectName
-echo -e "Initializing repository as git repository"
+echo -e "${PURPLE}Initializing repository as git repository"
 cd ../$projectName && git init
 echo -e "Updating npm..."
 npm -v
@@ -56,6 +55,15 @@ echo -e "${GREEN}Sucessfully installed dependencies"
 echo -e "committing and pushing to a remote repository"
 git add .
 git commit -m "Initial commit to repository"
+echo -e "bootstrapping react-router-dom"
+rm -rf ./src/index.js
+rm -rf ./src/App.js
+cp ../react-env-setup/App.js ./src/
+cp ../react-env-setup/index.js ./src/
+cp ../react-env-setup/SecondPage.js ./src/
+git add .
+git commit -m "bootstrapped react-router-dom"
+echo -e "${PURPLE}adding remote and pushing"
 git remote add origin https://github.com/$gitUsername/$projectName.git
 git push origin master
 echo -e "done"
